@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/d362bae7c2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 
+    <title>Weather Dashboard</title>
+</head>
+<body>
+
+    <div class="container">
+       <div class="jumbotron">
+           <h1 class="text-center">Weather Dashboard</h1>
+       </div>
+       
+       <div class="row" id="searching-city">
+          <div class="col-sm-3">
+             <div class="card">
+                <div class="card-header">
+                    <form id="search-form">           
+                        <input type="text" id="search-input">
+                        <input type="submit" id="find-city" value="Search for a city">
+                      </form>
+                </div> 
+             </div> 
+          </div>
+          
+         <div class="col-md-8">
+             <div class="card" id="temp-today">
+                 <div class="card-body">
+                     <div class="temp"></div>
+                     <div class="humidity"></div>
+                     <div class="wind-speed"></div>
+                     <div class="uv-index"></div>
+                 </div>
+             </div>
+         </div> 
+       </div>
+
+       <div class="row" id="fiveDay-forecast">
+           <div class="col-md-12">
+               <div class="card">
+                   <div class="card-body">
+                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita esse nam maxime officiis aliquam perspiciatis in, cum, labore quaerat, rerum tenetur hic tempora! Voluptatibus atque doloremque eum velit, explicabo sunt.</p>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+
+
+       
+
+
+
+
+
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
