@@ -36,7 +36,7 @@
           </div>
           
          <div class="col-md-8">
-             <div class="card" id="temp-today">
+             <div class="card" id="tempToday" style="display: none;">
                  <div class="card-body">
                      <div class="temp"></div>
                      <div class="humidity"></div>
@@ -47,14 +47,24 @@
          </div> 
        </div>
 
-       <div class="row" id="fiveDay-forecast">
+       <div class="row" id="fiveDaysFore" style="display: none;">
            <div class="col-md-12">
                <div class="card">
                    <div class="card-body">
-                       <div class="day1"></div>
+                       <div class="day1">
+                           <p class="day1-temp"></p>
+                           <p class="day1-humidity"></p>
+                       </div>
                    </div>
                    <div class="card-body">
-                       <div class="day2"></div>
+                       <div class="day2">
+                        <p class="day2-temp"></p>
+                        <p class="day3-humidity"></p>
+                       </div>
+                   </div>
+                   <div class="card-body">
+                    <p class="day3-temp"></p>
+                    <p class="day3-humidity"></p>
                    </div>
                </div>
            </div>
