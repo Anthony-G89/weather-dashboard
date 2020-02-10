@@ -9,7 +9,7 @@ $("#find-city").on("click", function (event) {
     renderCity(searchForCity);
     getCityWeather(searchForCity);
 
-    var fiveDayForecast = "https://api.openweathermap.org/data/2.5/forecast?units=imperial&q=" + searchForCity + "&appid=672a1f598eafe184b59f5edbe13124b3";
+    var fiveDayForecast = "https://api.openweathermap.org/data/2.5/forecast?&q=" + searchForCity + "&cnt=5&appid=672a1f598eafe184b59f5edbe13124b3&units=imperial";
 
     $.ajax({
         url: fiveDayForecast,
@@ -28,17 +28,29 @@ $("#find-city").on("click", function (event) {
             var fiveDaysHumidty = $("<p>").html("<p> Humidity: " + fiveDays[i].main.humidity + "%</p>");
             
             fiveDaysDiv.append(days,icon,fiveDaysTemp,fiveDaysHumidty);
-            $(".fiveDaysForecast").append(fiveDaysDiv);
+            $(".day1").append(fiveDaysDiv);
             fiveDaysDiv.append(days,icon,fiveDaysTemp,fiveDaysHumidty);
-            $(".fiveDaysForecast2").append(fiveDaysDiv);
+            $(".day2").append(fiveDaysDiv);
+           
            
 
         };
 
     });
+            var citySearching = searchForCity.val();
+            localStorage.setItem("cities", JSON.stringify(citySearching));
 
 
 });
+    displayCities();
+
+function displayCities(){
+    var citySearch = JSON.parse(localStorage.getItem("cities"));
+
+    searchForCity.val() = citySearch;
+
+    
+}
 
 
 function renderCity(newcity) {

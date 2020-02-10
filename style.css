@@ -1,1 +1,9 @@
+.jumbotron{
+    background-color: aqua;
+    
+}
 
+.fiveDay-forecast{
+    margin: 20px;
+    display: inline-block;
+}
