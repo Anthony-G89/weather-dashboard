@@ -7,3 +7,12 @@
     margin: 20px;
     display: inline-block;
 }
+
+#search-form{
+    padding-bottom: 12px;
+}
+#find-city{
+    margin-top: 5px;
+    background-color: rgb(42, 42, 197);
+    color: white;
+}

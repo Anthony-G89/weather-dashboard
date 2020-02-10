@@ -8,49 +8,47 @@ $("#find-city").on("click", function (event) {
     $("#search-input").val("");
     renderCity(searchForCity);
     getCityWeather(searchForCity);
+    renderFiveDayForecast();
 
-    var fiveDayForecast = "https://api.openweathermap.org/data/2.5/forecast?&q=" + searchForCity + "&cnt=5&appid=672a1f598eafe184b59f5edbe13124b3&units=imperial";
+    // var fiveDayForecast = "https://api.openweathermap.org/data/2.5/forecast?&q=" + searchForCity + "&appid=672a1f598eafe184b59f5edbe13124b3&units=imperial";
 
-    $.ajax({
-        url: fiveDayForecast,
-        method: "GET",
-    }).then(function (response) {
+    // $.ajax({
+    //     url: fiveDayForecast,
+    //     method: "GET",
+    // }).then(function (response) {
 
-        var fiveDays =response.list;
+    //     var fiveDays =response.list;
         
-        for(var i=0; i <5; i++){
-            console.log(fiveDays[i]);
+    //      for(var i=0; i < fiveDays.length; i+=8){
+    //         console.log(fiveDays[i]);
+    //         var fiveDaysDiv = $("<div>");
+    //         var days = $("<h3>").text(fiveDays[i].dt_txt);
+    //         var icon = $("<p>").text(fiveDays[i].weather[0].description);
+    //         var fiveDaysTemp = $("<p>").html("<p>Temperature: " + fiveDays[i].main.temp + "</p>");
+    //         var fiveDaysHumidty = $("<p>").html("<p> Humidity: " + fiveDays[i].main.humidity + "%</p>");
             
-            var fiveDaysDiv = $("<div>");
-            var days = $("<h3>").text(fiveDays[i].dt_txt);
-            var icon = $("<p>").text(fiveDays[i].weather[0].description);
-            var fiveDaysTemp = $("<p>").html("<p>Temperature: " + fiveDays[i].main.temp + "</p>");
-            var fiveDaysHumidty = $("<p>").html("<p> Humidity: " + fiveDays[i].main.humidity + "%</p>");
-            
-            fiveDaysDiv.append(days,icon,fiveDaysTemp,fiveDaysHumidty);
-            $(".day1").append(fiveDaysDiv);
-            fiveDaysDiv.append(days,icon,fiveDaysTemp,fiveDaysHumidty);
-            $(".day2").append(fiveDaysDiv);
-           
+    //         fiveDaysDiv.append(days,icon,fiveDaysTemp,fiveDaysHumidty);
+    //         $(".day1").append(fiveDaysDiv);
+          
            
 
-        };
+    //     };
 
-    });
-            var citySearching = searchForCity.val();
-            localStorage.setItem("cities", JSON.stringify(citySearching));
+    // });
+            // var citySearching = searchForCity.val();
+            // localStorage.setItem("cities", JSON.stringify(citySearching));
 
 
 });
-    displayCities();
+    // displayCities();
 
-function displayCities(){
-    var citySearch = JSON.parse(localStorage.getItem("cities"));
+// function displayCities(){
+    // var citySearch = JSON.parse(localStorage.getItem("cities"));
 
-    searchForCity.val() = citySearch;
+    // searchForCity.val() = citySearch;
 
     
-}
+// }
 
 
 function renderCity(newcity) {
@@ -93,4 +91,35 @@ function getCityWeather(city) {
             $(".uv-index").html("<p> UV Index: " + uvresponse.value + "</p>");
         });
     });
+}
+
+function renderFiveDayForecast(){
+    
+    var fiveDayForecast = "https://api.openweathermap.org/data/2.5/forecast?&q=" + searchForCity + "&appid=672a1f598eafe184b59f5edbe13124b3&units=imperial";
+
+    $.ajax({
+        url: fiveDayForecast,
+        method: "GET",
+    }).then(function (response) {
+
+        var fiveDays =response.list;
+        
+         for(var i=0; i < fiveDays.length; i+=8){
+            console.log(fiveDays[i]);
+            var fiveDaysDiv = $("<div>");
+            var days = $("<h3>").text(fiveDays[i].dt_txt);
+            var icon = $("<p>").text(fiveDays[i].weather[0].description);
+            var fiveDaysTemp = $("<p>").html("<p>Temperature: " + fiveDays[i].main.temp + "</p>");
+            var fiveDaysHumidty = $("<p>").html("<p> Humidity: " + fiveDays[i].main.humidity + "%</p>");
+            
+            fiveDaysDiv.append(days,icon,fiveDaysTemp,fiveDaysHumidty);
+            $(".day1").append(fiveDaysDiv);
+          
+           
+
+        };
+
+    });
+    
+
 }
