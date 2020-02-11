@@ -1,5 +1,7 @@
 var city = [];
-
+var tempToday1 = $("#tempToday");
+var fiveDay1 =$("#fiveDaysFore");
+var textOfFiveDayForecast = $("#wordFiveDayForecast");
 
 $("#find-city").on("click", function (event) {
     event.preventDefault();
@@ -8,34 +10,9 @@ $("#find-city").on("click", function (event) {
     $("#search-input").val("");
     renderCity(searchForCity);
     getCityWeather(searchForCity);
+    renderFiveDayForecast(searchForCity);
 
-    var fiveDayForecast = "https://api.openweathermap.org/data/2.5/forecast?&q=" + searchForCity + "&appid=672a1f598eafe184b59f5edbe13124b3&units=imperial";
 
-    $.ajax({
-        url: fiveDayForecast,
-        method: "GET",
-    }).then(function (response) {
-
-        var fiveDays =response.list;
-        $(".day1").empty();
-         for(var i=0; i < fiveDays.length; i+=8){
-            console.log(fiveDays[i]);
-            var fiveDaysDiv = $("<div>");
-            fiveDaysDiv.addClass("foreCast");
-            var days = $("<h3>").text(fiveDays[i].dt_txt);
-            var icon = $("<p>").text(fiveDays[i].weather[0].description);
-            var fiveDaysTemp = $("<p>").html("<p>Temperature: " + fiveDays[i].main.temp + "</p>");
-            var fiveDaysHumidty = $("<p>").html("<p> Humidity: " + fiveDays[i].main.humidity + "%</p>");
-
-             fiveDaysDiv.append(days,icon,fiveDaysTemp,fiveDaysHumidty);
-            //  $(".day1").append(days,icon);
-            //  $("day1-temp").append(fiveDaysTemp);
-            //  $("day1-humidity").append(fiveDaysTemp);
-             $(".day1").append(fiveDaysDiv);
-             
-        };
-        fiveDaysFore.style.display ="block";
-    });
             // var citySearching = searchForCity.val();
             // localStorage.setItem("cities", JSON.stringify(citySearching));
 
@@ -68,6 +45,8 @@ function renderCity(newcity) {
 $(document).on('click', '.city-li', function () {
     var city = $(this).attr('data-city');
     getCityWeather(city);
+    renderFiveDayForecast(city);
+
 });
 
 
@@ -92,11 +71,36 @@ function getCityWeather(city) {
             $(".uv-index").html("<p> UV Index: " + uvresponse.value + "</p>");
         });
     });
-    tempToday.style.display = "block";
+    tempToday1.show();
 }
 
-function renderFiveDayForecast(){
+function renderFiveDayForecast(city){
     
-    
+        var fiveDayForecast = "https://api.openweathermap.org/data/2.5/forecast?&q=" + city + "&appid=672a1f598eafe184b59f5edbe13124b3&units=imperial";
+
+    $.ajax({
+        url: fiveDayForecast,
+        method: "GET",
+    }).then(function (response) {
+
+        var fiveDays =response.list;
+        $("#fiveDaysFore").empty();
+         for(var i=0; i < fiveDays.length; i+=8){
+            var fiveDaysDiv = $("<div>").addClass("card d-inline-block fiveDays");
+            var cardDiv = $("<div>").addClass("card-body ");
+            var days = $("<h3>").text(fiveDays[i].dt_txt);
+            var icon = $("<p>").text(fiveDays[i].weather[0].description);
+            var fiveDaysTemp = $("<p>").html("<p>Temperature: " + fiveDays[i].main.temp + "</p>");
+            var fiveDaysHumidty = $("<p>").html("<p> Humidity: " + fiveDays[i].main.humidity + "%</p>");
+
+             cardDiv.append(days,icon,fiveDaysTemp,fiveDaysHumidty);
+             fiveDaysDiv.append(cardDiv);
+          
+             $("#fiveDaysFore").append(fiveDaysDiv);
+             
+        };
+        fiveDay1.show();
+        textOfFiveDayForecast.show();
+    });
 
 }

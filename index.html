@@ -1,78 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/d362bae7c2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/d362bae7c2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
     <title>Weather Dashboard</title>
 </head>
+
 <body>
 
     <div class="container">
-       <div class="jumbotron">
-           <h1 class="text-center">Weather Dashboard</h1>
-       </div>
-       
-       <div class="row" id="searching-city">
-          <div class="col-sm-3">
-             <div class="card">
-                <div class="card-header">
-                    <form id="search-form">           
-                        <input type="text" id="search-input">
-                        <button type="submit" id="find-city">Search for a city</button>
-                    </form>
-                    <div class="city-results list-group">
+        <div class="jumbotron">
+            <h1 class="text-center">Weather Dashboard</h1>
+        </div>
+
+        <div class="row mb-3" id="searching-city">
+            <div class="col-sm-3 searchBackGround" >
+                <div class="card">
+                    <div class="card-header">
+                        <form id="search-form">
+                            <input type="text" id="search-input">
+                            <button type="submit" id="find-city">Search for a city</button>
+                        </form>
+                        <div class="city-results list-group">
+                        </div>
                     </div>
-                </div> 
-             </div> 
-          </div>
-          
-         <div class="col-md-8">
-             <div class="card" id="tempToday" style="display: none;">
-                 <div class="card-body">
-                     <div class="temp"></div>
-                     <div class="humidity"></div>
-                     <div class="wind-speed"></div>
-                     <div class="uv-index"></div>
-                 </div>
-             </div>
-         </div> 
-       </div>
+                </div>
+            </div>
 
-       <div class="row" id="fiveDaysFore" style="display: none;">
-           <div class="col-md-12">
-               <div class="card">
-                   <div class="card-body">
-                       <div class="day1">
-                           <p class="day1-temp"></p>
-                           <p class="day1-humidity"></p>
-                       </div>
-                   </div>
-                   <div class="card-body">
-                       <div class="day2">
-                        <p class="day2-temp"></p>
-                        <p class="day3-humidity"></p>
-                       </div>
-                   </div>
-                   <div class="card-body">
-                    <p class="day3-temp"></p>
-                    <p class="day3-humidity"></p>
-                   </div>
-               </div>
-           </div>
-       </div>
+            <div class="col-md-8">
+                <div class="card" id="tempToday" style="display: none;">
+                    <div class="card-body">
+                        <div class="temp"></div>
+                        <div class="humidity"></div>
+                        <div class="wind-speed"></div>
+                        <div class="uv-index"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row fiveDayRow">
+            <h3 style="display: none;" id="wordFiveDayForecast">5-Day Forecast:</h3><br>
+            <div class="col-md-12"  id="fiveDaysFore">
+            </div>
+        </div>
 
 
 
-       
+
 
 
 
@@ -80,6 +62,9 @@
 
 
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

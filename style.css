@@ -1,5 +1,5 @@
 .jumbotron{
-    background-color:
+    background-color: #eb7c7c;
     
 }
 
@@ -13,6 +13,23 @@
 }
 #find-city{
     margin-top: 5px;
-    background-color: rgb(42, 42, 197);
+    border-radius: 8px;
+    padding: 7px;
+    background-color: #1d2124;
     color: white;
+}
+
+.fiveDays{
+    background-color: rgb(55, 55, 214);
+    margin: 5px;
+    width: 17%;
+    color: white;
+}
+.searchBackGround{
+    padding: 1px;
+
+}
+
+.fiveDayRow{
+    padding-bottom: 25px;
 }
