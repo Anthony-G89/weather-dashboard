@@ -3,6 +3,9 @@ var tempToday1 = $("#tempToday");
 var fiveDay1 =$("#fiveDaysFore");
 var textOfFiveDayForecast = $("#wordFiveDayForecast");
 
+
+
+
 $("#find-city").on("click", function (event) {
     event.preventDefault();
     var searchForCity = $("#search-input").val().trim();
@@ -57,6 +60,17 @@ function getCityWeather(city) {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
+        //console.log(response.weather[0].icon);
+        //console.log(weatherIcon);
+        
+        
+        //var weatherIcon = 'https://openweathermap.org' + response.weather[0].icon + '.png';
+        var todayDate = moment(response.dt * 1000).format('l');
+        var locationName = (response.name);
+       // var iconElem = $("<img>").attr("src", weatherIcon).attr("alt", "weather icon");
+
+        //$(".locationAndDate").text(iconElem);
+        $(".locationAndDate").html("<h3>" + locationName + " " + todayDate + "</h3>");
         $(".temp").html("<p> Temperature: " + response.main.temp + "</p>");
         $(".humidity").html("<p> Humidity: " + response.main.humidity + "%</p>");
         $(".wind-speed").html("<p> Wind Speed: " + response.wind.speed + " MPH</p>");
@@ -67,7 +81,7 @@ function getCityWeather(city) {
         $.ajax({
             url: uvApiBase,
             method: "GET",
-        }).then(function (uvresponse) {
+        }).then(function (uvresponse){
             $(".uv-index").html("<p> UV Index: " + uvresponse.value + "</p>");
         });
     });
@@ -83,12 +97,15 @@ function renderFiveDayForecast(city){
         method: "GET",
     }).then(function (response) {
 
-        var fiveDays =response.list;
+        var fiveDays = response.list;
         $("#fiveDaysFore").empty();
-         for(var i=0; i < fiveDays.length; i+=8){
+        console.log(fiveDays);
+        
+
+         for(var i=0; i < fiveDays.length; i+=9){
             var fiveDaysDiv = $("<div>").addClass("card d-inline-block fiveDays");
-            var cardDiv = $("<div>").addClass("card-body ");
-            var days = $("<h3>").text(fiveDays[i].dt_txt);
+            var cardDiv = $("<div>").addClass("card-body");
+            var days = $("<h3>").text(moment().add(i, 'd').format('l'));
             var icon = $("<p>").text(fiveDays[i].weather[0].description);
             var fiveDaysTemp = $("<p>").html("<p>Temperature: " + fiveDays[i].main.temp + "</p>");
             var fiveDaysHumidty = $("<p>").html("<p> Humidity: " + fiveDays[i].main.humidity + "%</p>");
@@ -101,6 +118,9 @@ function renderFiveDayForecast(city){
         };
         fiveDay1.show();
         textOfFiveDayForecast.show();
-    });
 
+    });
+       
+        
 }
+
