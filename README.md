@@ -12,6 +12,8 @@ SO THAT I can plan a trip accordingly
 
 ## Screenshots of Application
 ---
-![home](/assets/imgs/showingFiveDayForeCast.png)
+![home](/imgs/homePageForWeatherDashboard.png)
+![results](/imgs/showingFiveDayForeCast.png)
+
 
 To build this website: I used jquery and bootstrap.
