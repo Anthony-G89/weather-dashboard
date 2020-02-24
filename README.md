@@ -6,14 +6,17 @@ Description: You can check the weather in the United States. You'll get temperat
 
 ```
 AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
+I want to see the weather outlook for multiple cities
+So that I can plan a trip accordingly
 ```
 
 ## Screenshots of Application
 ---
-![home](/imgs/homePageForWeatherDashboard.png)
-![results](/imgs/showingFiveDayForeCast.png)
+![home](/imgs/homePageForWeatherDashboard(2).png)
+![results](/imgs/showingFiveDayForeCast(2).png)
 
+---
 
-To build this website: I used jquery and bootstrap.
+## To buils this website:
+
+I used jquery and bootstrap.
