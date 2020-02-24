@@ -18,6 +18,6 @@ So that I can plan a trip accordingly
 
 ---
 
-## To buils this website:
+## To build this website:
 
 I used jquery and bootstrap.
