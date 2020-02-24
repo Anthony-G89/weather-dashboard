@@ -1,5 +1,5 @@
 .jumbotron{
-    background-color: #eb7c7c;
+    background-color: #7ca3eb;
     
 }
 
@@ -32,4 +32,14 @@
 
 .fiveDayRow{
     padding-bottom: 25px;
+}
+
+#tempToday{
+    position: relative;
+}
+
+.rowfiveDayRow{
+    position: absolute;
+    left: 358px;
+    padding-bottom: 12px;
 }

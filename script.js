@@ -102,12 +102,12 @@ function renderFiveDayForecast(city){
         console.log(fiveDays);
         
 
-         for(var i=0; i < fiveDays.length; i+=9){
+         for(var i=0; i < 5; i++){
             var fiveDaysDiv = $("<div>").addClass("card d-inline-block fiveDays");
             var cardDiv = $("<div>").addClass("card-body");
-            var days = $("<h3>").text(moment().add(i, 'd').format('l'));
+            var days = $("<h5>").text(moment().add(i, 'd').format('l'));
             var icon = $("<p>").text(fiveDays[i].weather[0].description);
-            var fiveDaysTemp = $("<p>").html("<p>Temperature: " + fiveDays[i].main.temp + "</p>");
+            var fiveDaysTemp = $("<p>").html("<p>Temperature: " + fiveDays[i].main.temp + "°F</p>");
             var fiveDaysHumidty = $("<p>").html("<p> Humidity: " + fiveDays[i].main.humidity + "%</p>");
 
              cardDiv.append(days,icon,fiveDaysTemp,fiveDaysHumidty);
