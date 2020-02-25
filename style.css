@@ -22,8 +22,9 @@
 .fiveDays{
     background-color: rgb(55, 55, 214);
     margin: 5px;
-    width: 17%;
+    width: 173px;
     color: white;
+    
 }
 .searchBackGround{
     padding: 1px;
@@ -38,8 +39,9 @@
     position: relative;
 }
 
-.rowfiveDayRow{
-    position: absolute;
-    left: 358px;
-    padding-bottom: 12px;
+#search-input{
+    width: 100%;
 }
+
+.card d-inline-block fiveDays
+

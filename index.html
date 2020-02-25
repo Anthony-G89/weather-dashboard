@@ -20,8 +20,8 @@
             <h1 class="text-center">Weather Dashboard</h1>
         </div>
 
-        <div class="row mb-3" id="searching-city">
-            <div class="col-sm-3 searchBackGround" >
+        <div class="row mb-2" id="searching-city">
+            <div class="col-2 searchBackGround" >
                 <div class="card">
                     <div class="card-header">
                         <form id="search-form">
@@ -34,7 +34,9 @@
                 </div>
             </div>
 
-            <div class="col-md-8">
+            <div class="col-10">
+                <div class="row">
+                    <div class="col-md-12">
                 <div class="card" id="tempToday" style="display: none;">
                     <div class="card-body">
                         <div class="locationAndDate"></div>
@@ -44,14 +46,19 @@
                         <div class="uv-index"></div>
                     </div>
                 </div>
+                </div>
+                </div>
+                <div class="row rowfiveDayRow">
+                    <div class="col-md-12">
+                        <h3 style="display: none;" id="wordFiveDayForecast">5-Day Forecast:</h3><br>
+                        <div id="fiveDaysFore">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="rowfiveDayRow">
-            <h3 style="display: none;" id="wordFiveDayForecast">5-Day Forecast:</h3><br>
-            <div class="col-md-12"  id="fiveDaysFore">
-            </div>
-        </div>
+       
 
 
 
