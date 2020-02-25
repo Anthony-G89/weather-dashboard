@@ -1,5 +1,4 @@
 var cities = JSON.parse(localStorage.getItem("cities")) || [];
-
 var tempToday1 = $("#tempToday");
 var fiveDay1 = $("#fiveDaysFore");
 var textOfFiveDayForecast = $("#wordFiveDayForecast");
@@ -28,7 +27,6 @@ $("#find-city").on("click", function (event) {
 
 function renderCity() {
     $(".city-results").empty();
-
     for (var i = 0; i < cities.length; i++) {
         var newLi = $("<button>");
         newLi.addClass("list-group-item list-group-item-action city-li");
@@ -59,11 +57,12 @@ function getCityWeather(city) {
 
 
         var weatherIcon = response.weather[0].icon;
+        var iconElem = "http://openweathermap.org/img/w/" + weatherIcon + ".png";
         var todayDate = moment(response.dt * 1000).format('l');
         var locationName = (response.name);
-        var iconElem = $("<img>").attr("src", weatherIcon).attr("alt", "weather icon");
+        var iconElem = $("<img>").attr("src", iconElem).attr("alt", "weather icon");
 
-        $(".locationAndDate").text(iconElem);
+        $(".weatherIcon").html(iconElem);
         $(".locationAndDate").html("<h3>" + locationName + " " + todayDate + "</h3>");
         $(".temp").html("<p> Temperature: " + response.main.temp + "</p>");
         $(".humidity").html("<p> Humidity: " + response.main.humidity + "%</p>");
@@ -93,22 +92,23 @@ function renderFiveDayForecast(city) {
 
         var fiveDays = response.list;
         $("#fiveDaysFore").empty();
-        console.log(fiveDays);
-
-
+    
         for (var i = 0; i < fiveDays.length; i++) {
             if (fiveDays[i].dt_txt.includes("00:00:00")) {
-                console.log(fiveDays[i]);
+                //console.log(response.list[i].weather[0].icon);
                 
-                // 00:00:00
+               var weatherIconElm = response.list[i].weather[0].icon;
+                var wIcon = "http://openweathermap.org/img/w/" + weatherIconElm + ".png";
+               
                 var fiveDaysDiv = $("<div>").addClass("card d-inline-block fiveDays");
                 var cardDiv = $("<div>").addClass("card-body");
                 var days = $("<h5>").text(moment(fiveDays[i].dt_txt).format('l'));
-                var icon = $("<p>").text(fiveDays[i].weather[0].description);
+                //var icon = $("<p>").text(fiveDays[i].weather[0].description);
+                var iconSrc = $("<img>").attr("src", wIcon).attr("alt", "weather icon");
                 var fiveDaysTemp = $("<p>").html("<p>Temperature: " + fiveDays[i].main.temp + "°F</p>");
                 var fiveDaysHumidty = $("<p>").html("<p> Humidity: " + fiveDays[i].main.humidity + "%</p>");
 
-                cardDiv.append(days, icon, fiveDaysTemp, fiveDaysHumidty);
+                cardDiv.append(days, icon, fiveDaysTemp, fiveDaysHumidty,iconSrc);
                 fiveDaysDiv.append(cardDiv);
 
                 $("#fiveDaysFore").append(fiveDaysDiv);

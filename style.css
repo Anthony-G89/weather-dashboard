@@ -8,6 +8,10 @@
     display: inline-block;
 }
 
+#wordFiveDayForecast{
+    padding-top: 8px;
+}
+
 #search-form{
     padding-bottom: 12px;
 }
