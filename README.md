@@ -12,9 +12,9 @@ So that I can plan a trip accordingly
 
 ## Screenshots of Application
 ---
-![home](/imgs/homePageForWeatherDashboard(2).png)
+![home](/imgs/homePage.png)
 ---
-![results](/imgs/showingFiveDayForeCast(2).png)
+![results](/imgs/results.png)
 
 ---
 
