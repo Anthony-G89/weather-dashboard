@@ -12,7 +12,7 @@ So that I can plan a trip accordingly
 
 ## Screenshots of Application
 ---
-![home](/imgs/homePage.png)
+![home](/imgs/HomePage.png)
 ---
 ![results](/imgs/results.png)
 
