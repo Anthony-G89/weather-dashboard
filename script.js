@@ -14,7 +14,6 @@ $("#find-city").on("click", function (event) {
 
     cities.push(searchForCity);
     localStorage.setItem("cities", JSON.stringify(cities));
-
     renderCity();
     getCityWeather(searchForCity);
     renderFiveDayForecast(searchForCity);
