@@ -9,11 +9,12 @@
 }
 
 #wordFiveDayForecast{
-    padding-top: 8px;
+    padding: 8px 0 0 13px;
 }
 
 #search-form{
     padding-bottom: 12px;
+    
 }
 #find-city{
     margin-top: 5px;
@@ -41,6 +42,7 @@
 
 #tempToday{
     position: relative;
+    margin-top: 10px;
 }
 
 #search-input{
